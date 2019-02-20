@@ -13,17 +13,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <BorderPane prefHeight="800.0" prefWidth="800.0">
+      <BorderPane prefHeight="800.0" prefWidth="1000.0">
          <center>
-            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="808.0" prefWidth="889.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Add Product">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="800.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="878.0" prefWidth="800.0">
                            <children>
-                              <HBox prefHeight="768.0" prefWidth="800.0" spacing="50.0">
+                              <HBox prefHeight="768.0" prefWidth="1000.0" spacing="50.0">
                                  <children>
                                     <VBox prefHeight="768.0" prefWidth="172.0" spacing="30.0">
                                        <children>
@@ -111,12 +111,21 @@
                 </Tab>
                 <Tab text="View">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <AnchorPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="0.0" prefHeight="767.0" prefWidth="780.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="14.0" prefHeight="740.0" prefWidth="770.0">
+                              <TableView layoutX="14.0" layoutY="14.0" prefHeight="740.0" prefWidth="975.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="C1" />
-                                  <TableColumn prefWidth="75.0" text="C2" />
+                                  <TableColumn prefWidth="96.0" text="Name" />
+                                  <TableColumn prefWidth="91.0" text="Phone Number" />
+                                    <TableColumn prefWidth="79.0" text="Number Of Children" />
+                                    <TableColumn prefWidth="69.0" text="Color" />
+                                    <TableColumn prefWidth="75.0" text="Length" />
+                                    <TableColumn prefWidth="70.0" text="Neck" />
+                                    <TableColumn prefWidth="93.0" text="Arm Length" />
+                                    <TableColumn prefWidth="104.0" text="Wrist Length" />
+                                    <TableColumn prefWidth="105.0" text="Waist Length" />
+                                    <TableColumn prefWidth="79.0" text="Shoulder" />
+                                    <TableColumn prefWidth="124.0" text="Comment" />
                                 </columns>
                               </TableView>
                            </children>
