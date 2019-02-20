@@ -12,6 +12,8 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
+
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -19,7 +21,7 @@ public class Main extends Application {
 			//BorderPane root = new BorderPane();
 			Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
 			//System.out.println("hello");
-			Scene scene = new Scene(root,800,800);
+			Scene scene = new Scene(root,1000,800);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Tailor System");
 			primaryStage.setScene(scene);

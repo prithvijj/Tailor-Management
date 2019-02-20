@@ -1,6 +1,8 @@
 package application;
 
 import java.util.ArrayList;
+import java.io.IOException;
+import java.io.Writer;
 import java.lang.Object.*;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
@@ -31,17 +33,17 @@ public class Json {
 		return productArray;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Product product0 = new Product("hi", "123", 0, "blue", 1, 1, 1, 1, 1, 1, "");
 		Product product1 = new Product("hello", "456", 0, "red", 2, 2, 2, 2, 2, 2, "");
 		ArrayList<Product> productArray = new ArrayList<Product>();
 		productArray.add(product0);
 		productArray.add(product1);
 		
-		String temp = JSONEncode(productArray);
-		System.out.println(temp);
+		//String temp = JSONEncode(productArray);
+		//System.out.println(temp);
 		
-		
+		//Parser.writer(productArray);
 		
 //		ArrayList<Product> ahha = JSONDecode(temp);
 //		System.out.println(ahha.get(1));

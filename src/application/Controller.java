@@ -1,6 +1,14 @@
 package application;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller {
 	
@@ -16,6 +24,60 @@ public class Controller {
 	@FXML private TextField shoulderField;
 	@FXML private TextField commentField;
 	
+	@FXML private TableView<Product> productView;
+	@FXML private TableColumn<Product,String> nameCol;
+	@FXML private TableColumn<Product, String> phoneNumberCol;
+	@FXML private TableColumn<Product, Integer> numberOfChildrenCol;
+	@FXML private TableColumn<Product, String> colorCol;
+	@FXML private TableColumn<Product,Double> lengthCol;
+	@FXML private TableColumn<Product,Double> neckCol;
+	@FXML private TableColumn<Product,Double> armLengthCol;
+	@FXML private TableColumn<Product,Double> wristLengthCol;
+	@FXML private TableColumn<Product,Double> waistLengthCol;
+	@FXML private TableColumn<Product,Double> shoulderCol;
+	@FXML private TableColumn<Product,String> commentCol;
+	
+	
+	// Initialize Controller
+	@FXML
+	public void initialize() throws FileNotFoundException {
+		//Setting up the Column
+		System.out.println("hello");
+		nameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
+		phoneNumberCol.setCellValueFactory(new PropertyValueFactory<Product, String>("phoneNumber"));
+		numberOfChildrenCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("numberOfChildren"));
+		colorCol.setCellValueFactory(new PropertyValueFactory<Product, String>("color"));
+		lengthCol.setCellValueFactory(new PropertyValueFactory<Product, Double>("length"));
+		neckCol.setCellValueFactory(new PropertyValueFactory<Product, Double>("neck"));
+		armLengthCol.setCellValueFactory(new PropertyValueFactory<Product, Double>("armLength"));
+		wristLengthCol.setCellValueFactory(new PropertyValueFactory<Product, Double>("wristLength"));
+		waistLengthCol.setCellValueFactory(new PropertyValueFactory<Product, Double>("waistLength"));
+		shoulderCol.setCellValueFactory(new PropertyValueFactory<Product, Double>("shoulder"));
+		commentCol.setCellValueFactory(new PropertyValueFactory<Product, String>("comment"));
+		
+		//Load data
+		productView.getItems().addAll(getObservableList());
+		//productView.setItems(getObservableList());
+		
+		
+	}
+	
+	
+	
+	
+	private ObservableList<Product> getObservableList() throws FileNotFoundException{
+		ArrayList<Product> productArray = Parser.parser();
+		
+		ObservableList<Product> productObservable = FXCollections.observableArrayList();
+		
+		for (Product element : productArray) {
+			System.out.println(element);
+			productObservable.add(element);
+		}
+				
+		return productObservable;
+		
+	}
 	
 	
 	@FXML

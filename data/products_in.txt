@@ -1,0 +1,1 @@
+[{"name":"hi","phoneNumber":"123","numberOfChildren":0,"color":"blue","length":1.0,"neck":1.0,"armLength":1.0,"wristLength":1.0,"waistLength":1.0,"shoulder":1.0,"comment":"null"},{"name":"hello","phoneNumber":"456","numberOfChildren":0,"color":"red","length":2.0,"neck":2.0,"armLength":2.0,"wristLength":2.0,"waistLength":2.0,"shoulder":2.0,"comment":"null"}]

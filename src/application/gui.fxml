@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane minHeight="800.0" minWidth="1000.0" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1000.0">
          <center>
@@ -113,19 +113,19 @@
                   <content>
                     <AnchorPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="0.0" prefHeight="767.0" prefWidth="780.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="14.0" prefHeight="740.0" prefWidth="975.0">
+                              <TableView fx:id="productView" layoutX="14.0" layoutY="14.0" prefHeight="740.0" prefWidth="975.0">
                                 <columns>
-                                  <TableColumn prefWidth="96.0" text="Name" />
-                                  <TableColumn prefWidth="91.0" text="Phone Number" />
-                                    <TableColumn prefWidth="79.0" text="Number Of Children" />
-                                    <TableColumn prefWidth="69.0" text="Color" />
-                                    <TableColumn prefWidth="75.0" text="Length" />
-                                    <TableColumn prefWidth="70.0" text="Neck" />
-                                    <TableColumn prefWidth="93.0" text="Arm Length" />
-                                    <TableColumn prefWidth="104.0" text="Wrist Length" />
-                                    <TableColumn prefWidth="105.0" text="Waist Length" />
-                                    <TableColumn prefWidth="79.0" text="Shoulder" />
-                                    <TableColumn prefWidth="124.0" text="Comment" />
+                                  <TableColumn fx:id="nameCol" prefWidth="96.0" text="Name" />
+                                  <TableColumn fx:id="phoneNumberCol" prefWidth="91.0" text="Phone Number" />
+                                    <TableColumn fx:id="numberOfChildrenCol" prefWidth="79.0" text="Number Of Children" />
+                                    <TableColumn fx:id="colorCol" prefWidth="69.0" text="Color" />
+                                    <TableColumn fx:id="lengthCol" prefWidth="75.0" text="Length" />
+                                    <TableColumn fx:id="neckCol" prefWidth="70.0" text="Neck" />
+                                    <TableColumn fx:id="armLengthCol" prefWidth="93.0" text="Arm Length" />
+                                    <TableColumn fx:id="wristLengthCol" prefWidth="104.0" text="Wrist Length" />
+                                    <TableColumn fx:id="waistLengthCol" prefWidth="105.0" text="Waist Length" />
+                                    <TableColumn fx:id="shoulderCol" prefWidth="79.0" text="Shoulder" />
+                                    <TableColumn fx:id="commentCol" prefWidth="124.0" text="Comment" />
                                 </columns>
                               </TableView>
                            </children>
