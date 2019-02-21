@@ -1,4 +1,5 @@
 package application;
+import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +40,7 @@ public class Controller {
 	@FXML private TableColumn<Product,Double> waistLengthCol;
 	@FXML private TableColumn<Product,Double> shoulderCol;
 	@FXML private TableColumn<Product,String> commentCol;
+	
 	
 	
 	// Initialize Controller
@@ -92,6 +94,9 @@ public class Controller {
 	
 	@FXML
 	private void addButtonClicked() throws IOException {
+		
+		productArray = Parser.parser();
+		
 		String tempName = nameField.getText();
 		String tempPhoneNumber = phoneNumberField.getText();
 		int tempNumberOfChildren = Integer.parseInt(numberOfChildrenField.getText());
@@ -106,7 +111,8 @@ public class Controller {
 		Product product0 = new Product(tempName, tempPhoneNumber, tempNumberOfChildren, tempColor, 
 				tempLength, tempNeck, tempArmLength, tempWristLength, tempWaistLength, tempShoulder, tempComment);
 		
-		System.out.println("Created Product...");
+		//System.out.println("Created Product...");
+		
 		productArray.add(product0);
 		Parser.writer(productArray);
 		
@@ -140,4 +146,26 @@ public class Controller {
 		//System.out.println("Button has Been Clicked...");
 	}
 
+	@FXML
+	private void deleteRowFromTableView() throws IOException {
+		productView.getItems().removeAll(productView.getSelectionModel().getSelectedItem());
+		
+		ObservableList<Product> tempObservableList =  productView.getItems();
+		
+		ArrayList<Product> tempProductArray = new ArrayList<Product>();
+		
+		for (Product element : tempObservableList) {
+			tempProductArray.add(element);
+		}
+		
+		Parser.writer(tempProductArray);
+		
+		//		for (Product element : tempList) {
+//			System.out.println(element);
+//		}
+//		
+		
+		
+	}
+	
 }

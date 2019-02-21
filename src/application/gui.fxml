@@ -113,7 +113,7 @@
                   <content>
                     <AnchorPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="0.0" prefHeight="767.0" prefWidth="780.0">
                            <children>
-                              <TableView fx:id="productView" layoutX="14.0" layoutY="14.0" prefHeight="740.0" prefWidth="975.0">
+                              <TableView fx:id="productView" layoutX="14.0" layoutY="14.0" prefHeight="700.0" prefWidth="975.0">
                                 <columns>
                                   <TableColumn fx:id="nameCol" prefWidth="96.0" text="Name" />
                                   <TableColumn fx:id="phoneNumberCol" prefWidth="91.0" text="Phone Number" />
@@ -128,6 +128,7 @@
                                     <TableColumn fx:id="commentCol" prefWidth="124.0" text="Comment" />
                                 </columns>
                               </TableView>
+                              <Button layoutX="924.0" layoutY="727.0" mnemonicParsing="false" onAction="#deleteRowFromTableView" text="Delete" />
                            </children>
                         </AnchorPane>
                   </content>
