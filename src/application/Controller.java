@@ -5,9 +5,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,6 +18,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class Controller {
 	
 	private ArrayList<Product> productArray;
+	@FXML private TextField searchField;
+	
 	
 	@FXML private TextField nameField;
 	@FXML private TextField phoneNumberField;
@@ -100,7 +105,7 @@ public class Controller {
 		String tempName = nameField.getText();
 		String tempPhoneNumber = phoneNumberField.getText();
 		int tempNumberOfChildren = Integer.parseInt(numberOfChildrenField.getText());
-		String tempColor = colorField.getText();
+		String tempColor = colorField.getText().toLowerCase();
 		double tempLength = Double.parseDouble(lengthField.getText());
 		double tempNeck = Double.parseDouble(neckField.getText());
 		double tempArmLength = Double.parseDouble(armLengthField.getText());
@@ -164,8 +169,38 @@ public class Controller {
 //			System.out.println(element);
 //		}
 //		
+			
+	}
+	
+	
+	@FXML
+	private void searchProduct() {
+		FilteredList<Product> filter = new FilteredList(productView.getItems());
+		searchField.textProperty().addListener( (observable, oldValue, newValue) -> {
+			filter.setPredicate((Predicate<? super Product>) (Product element)->{
+				
+				if(newValue.isEmpty() || newValue==null  ) {
+					return true;
+				}
+				else if(element.getName().contains(newValue)) {
+					return true;
+				}
+				
+				
+				return false;
+			
+			});
+			
+		});
+		
+		SortedList sort = new SortedList(filter);
+		sort.comparatorProperty().bind(productView.comparatorProperty());
+		productView.setItems(sort);
+		
 		
 		
 	}
+	
+	
 	
 }

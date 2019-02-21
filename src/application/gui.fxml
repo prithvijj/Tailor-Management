@@ -129,6 +129,7 @@
                                 </columns>
                               </TableView>
                               <Button layoutX="924.0" layoutY="727.0" mnemonicParsing="false" onAction="#deleteRowFromTableView" text="Delete" />
+                              <TextField fx:id="searchField" layoutX="14.0" layoutY="727.0" onKeyReleased="#searchProduct" />
                            </children>
                         </AnchorPane>
                   </content>
