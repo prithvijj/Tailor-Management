@@ -1,5 +1,6 @@
 package application;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -11,6 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller {
+	
+	private ArrayList<Product> productArray;
 	
 	@FXML private TextField nameField;
 	@FXML private TextField phoneNumberField;
@@ -41,8 +44,15 @@ public class Controller {
 	// Initialize Controller
 	@FXML
 	public void initialize() throws FileNotFoundException {
+		
+		productArray = Parser.parser();
+		
+		
+		
+		
+		
 		//Setting up the Column
-		System.out.println("hello");
+		//System.out.println("hello");
 		nameCol.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
 		phoneNumberCol.setCellValueFactory(new PropertyValueFactory<Product, String>("phoneNumber"));
 		numberOfChildrenCol.setCellValueFactory(new PropertyValueFactory<Product, Integer>("numberOfChildren"));
@@ -58,7 +68,7 @@ public class Controller {
 		//Load data
 		productView.getItems().addAll(getObservableList());
 		//productView.setItems(getObservableList());
-		
+		productView.refresh();
 		
 	}
 	
@@ -66,12 +76,12 @@ public class Controller {
 	
 	
 	private ObservableList<Product> getObservableList() throws FileNotFoundException{
-		ArrayList<Product> productArray = Parser.parser();
+		ArrayList<Product> tempProductArray = Parser.parser();
 		
 		ObservableList<Product> productObservable = FXCollections.observableArrayList();
 		
-		for (Product element : productArray) {
-			System.out.println(element);
+		for (Product element : tempProductArray) {
+			//System.out.println(element);
 			productObservable.add(element);
 		}
 				
@@ -81,7 +91,7 @@ public class Controller {
 	
 	
 	@FXML
-	private void addButtonClicked() {
+	private void addButtonClicked() throws IOException {
 		String tempName = nameField.getText();
 		String tempPhoneNumber = phoneNumberField.getText();
 		int tempNumberOfChildren = Integer.parseInt(numberOfChildrenField.getText());
@@ -97,7 +107,16 @@ public class Controller {
 				tempLength, tempNeck, tempArmLength, tempWristLength, tempWaistLength, tempShoulder, tempComment);
 		
 		System.out.println("Created Product...");
-		System.out.println(product0);
+		productArray.add(product0);
+		Parser.writer(productArray);
+		
+		productView.getItems().clear();
+		productView.getItems().addAll(getObservableList());
+		
+		//productView.refresh();
+		
+		
+		//System.out.println(product0);
 		
 		
 		nameField.clear();
@@ -111,6 +130,8 @@ public class Controller {
 		waistLengthField.clear();
 		shoulderField.clear();
 		commentField.clear();
+		
+		
 		
 		
 		//System.out.println(nameField.getText());
