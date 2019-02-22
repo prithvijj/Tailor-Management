@@ -15,6 +15,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * @author pbj
+ * References Used:
+ * 1. https://www.youtube.com/watch?v=6kL2pQ9KABg
+ * 
+ */
+
+
 public class Controller {
 	
 	private ArrayList<Product> productArray;
